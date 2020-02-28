@@ -1,6 +1,8 @@
 <div class="bg-dark">
     <div class="container py-4 d-flex justify-content-between">
-        <h2 class="text-center text-light text-uppercase">{{ title }}</h2>
+        <div class="d-flex align-items-center">
+            <h2 class="text-center text-light text-uppercase">{{ title }}</h2>
+        </div>
         <div *ngIf="auth.user$ | async as user; else login">
             <button (click)="auth.signOut()" class="btn btn-outline-light mx-4">Изход</button>
             <span class="text-light">{{ user.displayName }}</span>

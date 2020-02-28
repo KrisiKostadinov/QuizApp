@@ -1,0 +1,23 @@
+<h2 class="text-center">Нов въпрос</h2>
+<form [formGroup]="addForm">
+    <mat-form-field class="w-100">
+        <mat-label>Въпрос</mat-label>
+        <input matInput placeholder="Заглавие на въпроса" formControlName="title">
+    </mat-form-field>
+</form>
+<div class="add-answer">
+    <mat-form-field class="w-100">
+        <mat-label>Отговор</mat-label>
+        <input matInput placeholder="Отговор" [(ngModel)]="content">
+    </mat-form-field>
+    <div class="d-flex justify-content-between">
+        <mat-checkbox [(ngModel)]="isCorrect">Верен отговор</mat-checkbox>
+        <button class="btn btn-primary" (click)="addAnswer()">{{ answers.length }} Добави отговора</button>
+    </div>
+</div>
+<div class="d-flex justify-content-between my-2">
+    <button type="button" [disabled]="!addForm.valid" (click)="addQuestion()" class="btn btn-outline-primary">Добави</button>
+    <button type="button" (click)="closeWindow()" class="btn btn-outline-danger">Откажи</button>
+    <button type="button" class="btn btn-outline-info">Статус</button>
+    <button type="button" class="btn btn-outline-primary">Въпроси</button>
+</div>
