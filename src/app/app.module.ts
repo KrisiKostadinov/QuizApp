@@ -15,6 +15,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AdminModule } from './admin/admin.module';
+import { QuestionModule } from './question/question.module';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { AdminModule } from './admin/admin.module';
     AngularFireAuthModule,
     BrowserAnimationsModule,
     AuthModule,
-    AdminModule
+    AdminModule,
+    QuestionModule
   ],
   providers: [],
   bootstrap: [AppComponent],

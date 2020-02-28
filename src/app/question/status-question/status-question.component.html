@@ -1,0 +1,7 @@
+<h2 class="text-center">{{ data.title }}</h2>
+<ul>
+    <li *ngFor="let answer of data.answers" class="p-4 m-2 d-flex justify-content-between">
+        <p>{{ answer.content }}</p>
+        <p>{{ answer.isCorrect ? "Верен отговор" : "Грешен отговор" }}</p>
+    </li>
+</ul>

@@ -7,11 +7,14 @@ import { AdminComponent } from './admin.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { QuestionService } from '../question/services/question.service';
+import { StatusQuestionComponent } from '../question/status-question/status-question.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
       AddQuestionComponent,
-      AdminComponent
+      AdminComponent,
+      StatusQuestionComponent
   ],
   imports: [
     MatDialogModule,
@@ -19,15 +22,17 @@ import { QuestionService } from '../question/services/question.service';
     ReactiveFormsModule,
     FormsModule,
     MatSnackBarModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    CommonModule
   ],
   exports: [
     AdminComponent
   ],
-  providers: [ QuestionService ],
+  providers: [],
   bootstrap: [],
   entryComponents: [
-      AddQuestionComponent
+      AddQuestionComponent,
+      StatusQuestionComponent
   ]
 })
 export class AdminModule { }

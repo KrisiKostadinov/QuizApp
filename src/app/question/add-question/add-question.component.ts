@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialogRef, MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Question } from '../models/question.model';
 import { Answer } from '../models/answer.model';
 import { QuestionService } from '../services/question.service';
+import { StatusQuestionComponent } from '../status-question/status-question.component';
 
 @Component({
   selector: 'app-add-question',
@@ -20,11 +21,13 @@ export class AddQuestionComponent implements OnInit {
   answers: Answer[] = [];
   content: string;
   isCorrect: boolean = false;
+  question: Question;
 
   constructor(
     private dialogRef: MatDialogRef<any>,
     private snackBar: MatSnackBar,
-    private questionService: QuestionService) { }
+    private questionService: QuestionService,
+    private dialog: MatDialog) { }
 
   ngOnInit() {
   }
@@ -47,7 +50,7 @@ export class AddQuestionComponent implements OnInit {
 
   addQuestion() {
     if(this.addForm.valid) {
-      const question: Question = {
+      this.question = {
         title: this.addForm.value.title,
         answers: this.answers
       }
@@ -55,12 +58,23 @@ export class AddQuestionComponent implements OnInit {
         duration: 2000
       });
 
-      this.questionService.addQuestion(question).then(data => {
+      this.questionService.addQuestion(this.question).then(data => {
         this.addForm.reset();
         this.snackBar.open("Въпросът е добавен успешно!", "OK", {
           duration: 2000
         });
       });
     }
+  }
+
+  statusQuestion() {
+    this.dialog.open(StatusQuestionComponent, {
+      width: '700px',
+      data: {
+        title: this.addForm.value.title,
+        answers: this.answers
+      },
+      backdropClass: 'bg-primary'
+    });
   }
 }
