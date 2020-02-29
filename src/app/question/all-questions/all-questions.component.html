@@ -1,0 +1,7 @@
+<h2 class="text-center">Всички въпроси</h2>
+<div *ngIf="currentQuestion">
+    <h2 class="p-4 m-2 bg-primary shadow rounded text-light text-center">{{ currentQuestion.title }}</h2>
+    <ul class="d-flex justify-content-center">
+        <li class="p-4 m-2 bg-primary shadow rounded text-light" *ngFor="let answer of currentQuestion.answers; let i = index" (click)="nextQuestion(i)">{{ answer.content }}</li>
+    </ul>
+</div>

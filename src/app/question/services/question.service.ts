@@ -14,6 +14,10 @@ export class QuestionService {
       this.questions = this.fs.collection<Question>("questions");
     }
 
+    getAll() {
+      return this.questions.valueChanges();
+    }
+
     addQuestion(question: Question) {
       return this.questions.add(question);
     }
