@@ -19,7 +19,8 @@ export class AdminComponent implements OnInit {
   addQuestion() {
     this.dialog.open(AddQuestionComponent, {
       width: '700px',
-      backdropClass: 'bg-primary'
+      backdropClass: 'bg-primary',
+      disableClose: true
     });
   }
 

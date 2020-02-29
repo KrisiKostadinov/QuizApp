@@ -15,7 +15,8 @@ import { StatusQuestionComponent } from '../status-question/status-question.comp
 export class AddQuestionComponent implements OnInit {
 
   addForm = new FormGroup({
-    title: new FormControl('', [Validators.required])
+    title: new FormControl('', [Validators.required]),
+    description: new FormControl('', [Validators.required])
   });
 
   answers: Answer[] = [];
@@ -52,7 +53,8 @@ export class AddQuestionComponent implements OnInit {
     if(this.addForm.valid) {
       this.question = {
         title: this.addForm.value.title,
-        answers: this.answers
+        answers: this.answers,
+        description: this.addForm.value.description
       }
       this.snackBar.open("Добавяне на въпроса", "OK", {
         duration: 2000
@@ -60,6 +62,8 @@ export class AddQuestionComponent implements OnInit {
 
       this.questionService.addQuestion(this.question).then(data => {
         this.addForm.reset();
+        
+        this.answers = [];
         this.snackBar.open("Въпросът е добавен успешно!", "OK", {
           duration: 2000
         });
@@ -72,7 +76,8 @@ export class AddQuestionComponent implements OnInit {
       width: '700px',
       data: {
         title: this.addForm.value.title,
-        answers: this.answers
+        answers: this.answers,
+        description: this.addForm.value.description
       },
       backdropClass: 'bg-primary'
     });
