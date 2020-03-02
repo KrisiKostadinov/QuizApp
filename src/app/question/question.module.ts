@@ -10,6 +10,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { RemoveQuestionComponent } from './remove-question/remove-question.component';
 import { EditQuestionComponent } from './edit-question/edit-question.component';
+import { IncorrectAnswerComponent } from './incorrect-answer/incorrect-answer.component';
 
 
 
@@ -18,7 +19,8 @@ import { EditQuestionComponent } from './edit-question/edit-question.component';
     AllQuestionsComponent,
     CorrectAnswerComponent,
     ListQuestionsComponent,
-    RemoveQuestionComponent
+    RemoveQuestionComponent,
+    IncorrectAnswerComponent
   ],
   imports: [
     CommonModule,
@@ -33,7 +35,8 @@ import { EditQuestionComponent } from './edit-question/edit-question.component';
   entryComponents: [
     CorrectAnswerComponent,
     ListQuestionsComponent,
-    RemoveQuestionComponent
+    RemoveQuestionComponent,
+    IncorrectAnswerComponent
   ]
 })
 export class QuestionModule { }

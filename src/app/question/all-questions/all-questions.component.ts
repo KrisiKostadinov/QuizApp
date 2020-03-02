@@ -4,6 +4,7 @@ import { Question } from '../models/question.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
 import { CorrectAnswerComponent } from '../correct-answer/correct-answer.component';
+import { IncorrectAnswerComponent } from '../incorrect-answer/incorrect-answer.component';
 
 @Component({
   selector: 'app-all-questions',
@@ -46,9 +47,16 @@ export class AllQuestionsComponent implements OnInit {
         this.endQuestions();
       });
     } else {
-      this.snackBar.open("Грешен отговор", "OK", {
-        duration: 2000,
-        panelClass: 'bg-danger',
+      this.dialog.open(IncorrectAnswerComponent, {
+        width: '400px',
+        data: {
+          isCorrect: isCorrect,
+          question: this.currentQuestion
+        },
+        backdropClass: 'bg-danger',
+        disableClose: true
+      }).afterClosed().subscribe(data => {
+        this.endQuestions();
       });
     }
   }

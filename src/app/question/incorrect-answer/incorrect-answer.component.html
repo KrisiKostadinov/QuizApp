@@ -1,0 +1,11 @@
+<h2 class="text-center text-danger">{{ data.isCorrect ? "Верен отговор" : "Грешен отговор" }}</h2>
+<h4 class="text-center text-secondary my-4">{{ data.question.title }}</h4>
+<p class="text-success">{{ correctAnswers.length === 1 ? "Верен отговор" : "Верни отговори" }}</p>
+<div class="d-flex justify-content-start">
+    <h6 *ngFor="let answer of correctAnswers" class="text-success mx-2">{{ answer.content }}</h6>
+</div>
+<h6 class="text-primary pt-4">Интересен факт</h6>
+<p class="text-secondary text-center">{{ data.question.description }}</p>
+<div class="d-flex justify-content-center">
+    <button class="btn btn-primary" [mat-dialog-close]="">Продължи</button>
+</div>
