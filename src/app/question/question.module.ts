@@ -9,7 +9,6 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { RemoveQuestionComponent } from './remove-question/remove-question.component';
-import { EditQuestionComponent } from './edit-question/edit-question.component';
 import { IncorrectAnswerComponent } from './incorrect-answer/incorrect-answer.component';
 
 

@@ -13,6 +13,7 @@ import { AuthModule } from './auth/auth.module';
 import { AdminModule } from './admin/admin.module';
 import { QuestionModule } from './question/question.module';
 import { NavbarComponent } from './navbar/navbar.component';
+import { CategoryModule } from './category/category.module';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     BrowserAnimationsModule,
     AuthModule,
     AdminModule,
-    QuestionModule
+    QuestionModule,
+    CategoryModule
   ],
   providers: [],
   bootstrap: [AppComponent],

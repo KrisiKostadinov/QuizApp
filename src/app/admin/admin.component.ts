@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AddQuestionComponent } from '../question/add-question/add-question.component';
 import { MatDialog } from '@angular/material/dialog';
+import { AddCategoryComponent } from '../category/add-category/add-category.component';
 
 @Component({
   selector: 'app-admin',
@@ -24,4 +25,11 @@ export class AdminComponent implements OnInit {
     });
   }
 
+  addCategory() {
+    this.dialog.open(AddCategoryComponent, {
+      width: '400px',
+      backdropClass: 'bg-primary',
+      disableClose: true
+    });
+  }
 }

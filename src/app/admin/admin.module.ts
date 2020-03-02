@@ -11,13 +11,16 @@ import { StatusQuestionComponent } from '../question/status-question/status-ques
 import { CommonModule } from '@angular/common';
 import { EditQuestionComponent } from '../question/edit-question/edit-question.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { AddCategoryComponent } from '../category/add-category/add-category.component';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
-      AddQuestionComponent,
-      AdminComponent,
-      StatusQuestionComponent,
-      EditQuestionComponent
+    AddQuestionComponent,
+    AdminComponent,
+    StatusQuestionComponent,
+    EditQuestionComponent,
+    AddCategoryComponent
   ],
   imports: [
     MatDialogModule,
@@ -27,7 +30,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatSnackBarModule,
     MatCheckboxModule,
     CommonModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatButtonModule
   ],
   exports: [
     AdminComponent
@@ -37,7 +41,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
   entryComponents: [
       AddQuestionComponent,
       StatusQuestionComponent,
-      EditQuestionComponent
+      EditQuestionComponent,
+      AddCategoryComponent
   ]
 })
 export class AdminModule { }
