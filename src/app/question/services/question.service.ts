@@ -14,16 +14,20 @@ export class QuestionService {
       this.questions = this.fs.collection<Question>("questions");
     }
 
-    getAll() {
-      return this.questions.valueChanges({ idField: 'id' });
-    }
+  getAll() {
+    return this.questions.valueChanges({ idField: 'id' });
+  }
 
-    addQuestion(question: Question) {
-      return this.questions.add(question);
-    }
+  addQuestion(question: Question) {
+    return this.questions.add(question);
+  }
 
-    getById(id: string) {
-      return this.questions.doc(id).valueChanges();
-    }
+  getById(id: string) {
+    return this.questions.doc(id).valueChanges();
+  }
+
+  removeQuestion(id: string) {
+    return this.questions.doc(id).delete();
+  }
 
 }

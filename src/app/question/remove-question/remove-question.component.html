@@ -1,0 +1,5 @@
+<h2 class="text-center text-danger">{{ data.question.title }}</h2>
+<div class="d-flex justify-content-center">
+    <button class="mx-2" mat-mini-fab color="warn" matTooltip="Изтрии" matTooltipClass="bg-danger" matTooltipPosition="above" [mat-dialog-close]="data.question.id" (click)="removeQuestion(data.question.id)"><i class="material-icons">clear</i></button>
+    <button mat-mini-fab color="accent" matTooltip="Назад" matTooltipPosition="above" (click)="back()"><i class="material-icons">undo</i></button>
+</div>

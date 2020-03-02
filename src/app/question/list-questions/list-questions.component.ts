@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { QuestionService } from '../services/question.service';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialogRef, MatDialog } from '@angular/material/dialog';
+import { RemoveQuestionComponent } from '../remove-question/remove-question.component';
+import { Question } from '../models/question.model';
 
 @Component({
   selector: 'app-list-questions',
@@ -9,17 +11,22 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class ListQuestionsComponent implements OnInit {
 
-  questions;
+  questions: Question[];
   isShowAll: boolean = true;
 
-  question;
+  question: Question;
+  
   constructor(
     private questionService: QuestionService,
-    private dialogRef: MatDialogRef<any>) { }
+    private dialogRef: MatDialogRef<any>,
+    private dialog: MatDialog) { }
 
   ngOnInit() {
-    const subscription = this.questionService.getAll().subscribe(data => {
-      subscription.unsubscribe();
+    this.getAll();
+  }
+
+  getAll() {
+    this.questionService.getAll().subscribe(data => {
       this.questions = data;
     });
   }
@@ -29,7 +36,8 @@ export class ListQuestionsComponent implements OnInit {
     this.isShowAll = false;
     const subscription = this.questionService.getById(id).subscribe(data => {
       subscription.unsubscribe();
-      this.question = data;
+      this.question = data as Question;
+      this.question.id = id;
     });
   }
 
@@ -42,11 +50,20 @@ export class ListQuestionsComponent implements OnInit {
   }
 
   removeQuestion() {
-
+    this.dialog.open(RemoveQuestionComponent, {
+      width: '400px',
+      data: {
+        question: this.question
+      },
+      backdropClass: 'bg-danger'
+    }).afterClosed().subscribe(data => {
+      if(data) {
+        this.dialogRef.close();
+      }
+    });
   }
 
   closeWindow() {
     this.dialogRef.close();
   }
-  
 }

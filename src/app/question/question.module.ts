@@ -8,6 +8,7 @@ import { ListQuestionsComponent } from './list-questions/list-questions.componen
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { RemoveQuestionComponent } from './remove-question/remove-question.component';
 
 
 
@@ -15,7 +16,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
   declarations: [
     AllQuestionsComponent,
     CorrectAnswerComponent,
-    ListQuestionsComponent
+    ListQuestionsComponent,
+    RemoveQuestionComponent
   ],
   imports: [
     CommonModule,
@@ -29,7 +31,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
   ],
   entryComponents: [
     CorrectAnswerComponent,
-    ListQuestionsComponent
+    ListQuestionsComponent,
+    RemoveQuestionComponent
   ]
 })
 export class QuestionModule { }
