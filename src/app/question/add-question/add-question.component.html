@@ -23,5 +23,5 @@
     <button type="button" [disabled]="!addForm.valid" (click)="addQuestion()" class="btn btn-outline-primary">Добави</button>
     <button type="button" (click)="closeWindow()" class="btn btn-outline-danger">Откажи</button>
     <button type="button" (click)="statusQuestion()" class="btn btn-outline-info">Статус</button>
-    <button type="button" (click)="allQuestions()" class="btn btn-outline-primary">Въпроси въпроси</button>
+    <button type="button" (click)="allQuestions()" class="btn btn-outline-primary" (click)="allQuestions()">Въпроси въпроси</button>
 </div>

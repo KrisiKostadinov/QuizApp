@@ -4,23 +4,32 @@ import { QuestionService } from './services/question.service';
 import { AllQuestionsComponent } from './all-questions/all-questions.component';
 import { CorrectAnswerComponent } from './correct-answer/correct-answer.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { ListQuestionsComponent } from './list-questions/list-questions.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 
 
 @NgModule({
   declarations: [
     AllQuestionsComponent,
-    CorrectAnswerComponent
+    CorrectAnswerComponent,
+    ListQuestionsComponent
   ],
   imports: [
     CommonModule,
-    MatDialogModule
+    MatDialogModule,
+    MatProgressSpinnerModule,
+    MatButtonModule,
+    MatTooltipModule
   ],
   providers: [
     QuestionService
   ],
   entryComponents: [
-    CorrectAnswerComponent
+    CorrectAnswerComponent,
+    ListQuestionsComponent
   ]
 })
 export class QuestionModule { }

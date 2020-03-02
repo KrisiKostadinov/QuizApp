@@ -15,11 +15,15 @@ export class QuestionService {
     }
 
     getAll() {
-      return this.questions.valueChanges();
+      return this.questions.valueChanges({ idField: 'id' });
     }
 
     addQuestion(question: Question) {
       return this.questions.add(question);
+    }
+
+    getById(id: string) {
+      return this.questions.doc(id).valueChanges();
     }
 
 }

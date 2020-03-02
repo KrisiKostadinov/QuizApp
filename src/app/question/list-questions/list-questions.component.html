@@ -1,0 +1,16 @@
+<mat-spinner class="mx-auto" *ngIf="!questions || !question && !isShowAll"></mat-spinner>
+<div *ngIf="isShowAll && questions" class="all">
+    <h2 class="text-center">Всички въпроси</h2>
+    <ul>
+        <li class="p-2 my-2 bg-primary shadow text-light rounded" *ngFor="let question of questions; let i = index" (click)="showQuestion(question.id)">{{ question.title }}</li>
+    </ul>
+</div>
+<div *ngIf="!isShowAll && question">
+    <h4 class="text-center">{{ question.title }}</h4>
+    <div class="d-flex justify-content-center">
+        <button mat-mini-fab color="accent" matTooltip="Назад" matTooltipPosition="above" (click)="showAll()"><i class="material-icons">undo</i></button>
+        <button class="mx-2" mat-mini-fab color="primary" matTooltip="Редактирай" matTooltipPosition="above" (click)="editQuestion()"><i class="material-icons">create</i></button>
+        <button mat-mini-fab color="warn" matTooltip="Изтрии" matTooltipClass="bg-danger" matTooltipPosition="above" (click)="removeQuestion()"><i class="material-icons">clear</i></button>
+    </div>
+</div>
+<button mat-mini-fab color="warn" matTooltip="Затвори" matTooltipClass="bg-danger" matTooltipPosition="above" (click)="closeWindow()"><i class="material-icons">undo</i></button>

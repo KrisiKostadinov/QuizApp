@@ -6,6 +6,7 @@ import { Question } from '../models/question.model';
 import { Answer } from '../models/answer.model';
 import { QuestionService } from '../services/question.service';
 import { StatusQuestionComponent } from '../status-question/status-question.component';
+import { ListQuestionsComponent } from '../list-questions/list-questions.component';
 
 @Component({
   selector: 'app-add-question',
@@ -82,4 +83,13 @@ export class AddQuestionComponent implements OnInit {
       backdropClass: 'bg-primary'
     });
   }
+
+  allQuestions() {
+    this.dialog.open(ListQuestionsComponent, {
+      width: '400px',
+      backdropClass: 'bg-primary',
+      disableClose: true
+    });
+  }
+
 }
