@@ -30,4 +30,8 @@ export class QuestionService {
     return this.questions.doc(id).delete();
   }
 
+  editQuestion(id: string, question: Question) {
+    return this.questions.doc(id).set(question, { merge: true });
+  }
+
 }

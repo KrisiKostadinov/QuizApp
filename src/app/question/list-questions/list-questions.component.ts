@@ -3,6 +3,7 @@ import { QuestionService } from '../services/question.service';
 import { MatDialogRef, MatDialog } from '@angular/material/dialog';
 import { RemoveQuestionComponent } from '../remove-question/remove-question.component';
 import { Question } from '../models/question.model';
+import { EditQuestionComponent } from '../edit-question/edit-question.component';
 
 @Component({
   selector: 'app-list-questions',
@@ -46,7 +47,14 @@ export class ListQuestionsComponent implements OnInit {
   }
 
   editQuestion() {
-
+    this.dialog.open(EditQuestionComponent, {
+      width: '400px',
+      data: {
+        question: this.question
+      },
+      backdropClass: 'bg-primary',
+      disableClose: true
+    });
   }
 
   removeQuestion() {
@@ -55,7 +63,8 @@ export class ListQuestionsComponent implements OnInit {
       data: {
         question: this.question
       },
-      backdropClass: 'bg-danger'
+      backdropClass: 'bg-danger',
+      disableClose: true
     }).afterClosed().subscribe(data => {
       if(data) {
         this.dialogRef.close();

@@ -9,12 +9,15 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { QuestionService } from '../question/services/question.service';
 import { StatusQuestionComponent } from '../question/status-question/status-question.component';
 import { CommonModule } from '@angular/common';
+import { EditQuestionComponent } from '../question/edit-question/edit-question.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
       AddQuestionComponent,
       AdminComponent,
-      StatusQuestionComponent
+      StatusQuestionComponent,
+      EditQuestionComponent
   ],
   imports: [
     MatDialogModule,
@@ -23,7 +26,8 @@ import { CommonModule } from '@angular/common';
     FormsModule,
     MatSnackBarModule,
     MatCheckboxModule,
-    CommonModule
+    CommonModule,
+    MatTooltipModule
   ],
   exports: [
     AdminComponent
@@ -32,7 +36,8 @@ import { CommonModule } from '@angular/common';
   bootstrap: [],
   entryComponents: [
       AddQuestionComponent,
-      StatusQuestionComponent
+      StatusQuestionComponent,
+      EditQuestionComponent
   ]
 })
 export class AdminModule { }
