@@ -21,4 +21,12 @@ export class CategoryService {
     return this.categories.valueChanges({ idField: "id" });
   }
 
+  getById(id: string) {
+    return this.categories.doc(id).valueChanges();
+  }
+
+  dismissCategory(id: string) {
+    return this.categories.doc(id).delete();
+  }
+
 }

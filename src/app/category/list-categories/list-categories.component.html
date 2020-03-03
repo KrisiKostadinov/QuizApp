@@ -1,6 +1,15 @@
-<h2 class="text-center text-success">Всички категории</h2>
-<mat-spinner class="mx-auto" *ngIf="!categories"></mat-spinner>
-<ul>
-    <li class="p-2 my-2 bg-primary shadow text-light rounded" *ngFor="let category of categories">{{ category.title }}</li>
-</ul>
-<button mat-mini-fab color="warn" (click)="back()"><i class="material-icons">undo</i></button>
+<div *ngIf="isAll">
+    <h2 class="text-center text-success">Всички категории</h2>
+    <mat-spinner class="mx-auto" *ngIf="!categories"></mat-spinner>
+    <button class="w-100 item my-2 p-2" mat-raised-button color="primary" *ngFor="let category of categories" (click)="getById(category.id)">{{ category.title }}</button>
+</div>
+<div *ngIf="!isAll && category" class="category">
+    <h2 class="text-center text-success">Категория</h2>
+    <h6 class="p-2 my-2 bg-primary shadow text-light rounded">{{ category.title }}</h6>
+    <div class="d-flex justify-content-center">
+        <button mat-mini-fab color="primary" (click)="editCategory()"><i class="material-icons">edit</i></button>
+        <button class="mx-2" mat-mini-fab color="warn" (click)="dismissCategory()"><i class="material-icons">clear</i></button>
+        <button mat-mini-fab color="accept" (click)="showAll()"><i class="material-icons">undo</i></button>
+    </div>
+</div>
+<button mat-mini-fab color="accept" (click)="back()"><i class="material-icons">undo</i></button>

@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 import { ListCategoriesComponent } from './list-categories/list-categories.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { DismissCategoryComponent } from './dismiss-category/dismiss-category.component';
 
 
 
 @NgModule({
   declarations: [
-    ListCategoriesComponent
+    ListCategoriesComponent,
+    DismissCategoryComponent
   ],
   imports: [
     CommonModule,
@@ -16,7 +18,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatProgressSpinnerModule
   ],
   entryComponents: [
-    ListCategoriesComponent
+    ListCategoriesComponent,
+    DismissCategoryComponent
   ]
 })
 export class CategoryModule { }

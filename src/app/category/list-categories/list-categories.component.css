@@ -1,6 +1,6 @@
-ul {
-    list-style-type: none;
-    padding: 0;
+button.item {
+    cursor: pointer;
+    text-align: left;
 }
 
 button {
