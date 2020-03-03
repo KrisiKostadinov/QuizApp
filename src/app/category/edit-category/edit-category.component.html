@@ -1,0 +1,11 @@
+<h2 class="text-center text-primary">Редактирай категория <span class="font-weight-bold">{{ data.category.title }}</span></h2>
+<form [formGroup]="editForm">
+    <mat-form-field class="w-100">
+        <mat-label>Нова категория</mat-label>
+        <input matInput type="text" placeholder="Нова категория" formControlName="title">
+    </mat-form-field>
+    <div class="d-flex justify-content-center">
+        <button mat-button [disabled]="editForm.invalid" (click)="editCategory()" color="primary">Редактирай</button>
+        <button [mat-dialog-close]="" mat-button color="warn">Откажи</button>
+    </div>
+</form>

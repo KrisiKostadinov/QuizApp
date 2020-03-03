@@ -3,6 +3,7 @@ import { Category } from '../models/category.model';
 import { CategoryService } from '../services/category.service';
 import { MatDialogRef, MatDialog } from '@angular/material/dialog';
 import { DismissCategoryComponent } from '../dismiss-category/dismiss-category.component';
+import { EditCategoryComponent } from '../edit-category/edit-category.component';
 
 @Component({
   selector: 'app-list-categories',
@@ -55,10 +56,19 @@ export class ListCategoriesComponent implements OnInit {
       disableClose: true,
       backdropClass: 'bg-danger'
     });
+
     this.showAll();
   }
 
   editCategory(id: string) {
-
+    this.dialog.open(EditCategoryComponent, {
+      width: '700px',
+      data: {
+        category: this.category
+      },
+      disableClose: true,
+      backdropClass: 'bg-primary'
+    });
+    this.showAll();
   }
 }

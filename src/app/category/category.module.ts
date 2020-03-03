@@ -4,22 +4,33 @@ import { ListCategoriesComponent } from './list-categories/list-categories.compo
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { DismissCategoryComponent } from './dismiss-category/dismiss-category.component';
+import { MatRippleModule } from '@angular/material/core';
+import { EditCategoryComponent } from './edit-category/edit-category.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 
 @NgModule({
   declarations: [
     ListCategoriesComponent,
-    DismissCategoryComponent
+    DismissCategoryComponent,
+    EditCategoryComponent
   ],
   imports: [
     CommonModule,
     MatButtonModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatRippleModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatDialogModule
   ],
   entryComponents: [
     ListCategoriesComponent,
-    DismissCategoryComponent
+    DismissCategoryComponent,
+    EditCategoryComponent
   ]
 })
 export class CategoryModule { }

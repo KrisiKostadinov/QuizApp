@@ -29,4 +29,8 @@ export class CategoryService {
     return this.categories.doc(id).delete();
   }
 
+  editCategory(id: string, category: Category) {
+    return this.categories.doc(id).set(category, { merge: true });
+  }
+
 }
