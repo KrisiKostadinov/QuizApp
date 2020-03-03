@@ -7,6 +7,8 @@ import { Answer } from '../models/answer.model';
 import { QuestionService } from '../services/question.service';
 import { StatusQuestionComponent } from '../status-question/status-question.component';
 import { ListQuestionsComponent } from '../list-questions/list-questions.component';
+import { Category } from 'src/app/category/models/category.model';
+import { CategoryService } from 'src/app/category/services/category.service';
 
 @Component({
   selector: 'app-add-question',
@@ -17,21 +19,27 @@ export class AddQuestionComponent implements OnInit {
 
   addForm = new FormGroup({
     title: new FormControl('', [Validators.required]),
-    description: new FormControl('', [Validators.required])
+    description: new FormControl('', [Validators.required]),
+    category: new FormControl('')
   });
 
   answers: Answer[] = [];
   content: string;
   isCorrect: boolean = false;
   question: Question;
+  categories: Category[];
 
   constructor(
     private dialogRef: MatDialogRef<any>,
     private snackBar: MatSnackBar,
     private questionService: QuestionService,
-    private dialog: MatDialog) { }
+    private dialog: MatDialog,
+    private categoryService: CategoryService) { }
 
   ngOnInit() {
+    this.categoryService.getAll().subscribe(data => {
+      this.categories = data;
+    })
   }
 
   closeWindow() {
@@ -55,7 +63,8 @@ export class AddQuestionComponent implements OnInit {
       this.question = {
         title: this.addForm.value.title,
         answers: this.answers,
-        description: this.addForm.value.description
+        description: this.addForm.value.description,
+        categoryId: this.addForm.value.category
       }
       this.snackBar.open("Добавяне на въпроса", "OK", {
         duration: 2000

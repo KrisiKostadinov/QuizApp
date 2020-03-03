@@ -8,6 +8,15 @@
         <mat-label>Напишете кратко описание на въпроса</mat-label>
         <textarea matInput placeholder="Напишете кратко описание на въпроса" formControlName="description"></textarea>
     </mat-form-field>
+    <mat-form-field class="w-100">
+        <mat-label>Изберете категория</mat-label>
+        <mat-select formControlName="category">
+            <mat-option>Няма</mat-option>
+            <mat-option *ngFor="let category of categories" [value]="category.id">
+                {{ category.title }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
 </form>
 <div class="add-answer">
     <mat-form-field class="w-100">

@@ -13,6 +13,7 @@ import { EditQuestionComponent } from '../question/edit-question/edit-question.c
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { AddCategoryComponent } from '../category/add-category/add-category.component';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatCheckboxModule,
     CommonModule,
     MatTooltipModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSelectModule
   ],
   exports: [
     AdminComponent

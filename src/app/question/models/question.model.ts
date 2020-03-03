@@ -5,4 +5,5 @@ export class Question {
     title: string;
     answers: Answer[];
     description: string;
+    categoryId?: string;
 }
