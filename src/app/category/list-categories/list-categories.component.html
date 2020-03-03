@@ -1,0 +1,6 @@
+<h2 class="text-center text-success">Всички категории</h2>
+<mat-spinner class="mx-auto" *ngIf="!categories"></mat-spinner>
+<ul>
+    <li class="p-2 my-2 bg-primary shadow text-light rounded" *ngFor="let category of categories">{{ category.title }}</li>
+</ul>
+<button mat-mini-fab color="warn" (click)="back()"><i class="material-icons">undo</i></button>

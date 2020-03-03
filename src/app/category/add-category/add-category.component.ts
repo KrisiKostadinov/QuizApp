@@ -1,9 +1,10 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { Category } from '../models/category.model';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CategoryService } from '../services/category.service';
+import { ListCategoriesComponent } from '../list-categories/list-categories.component';
 
 @Component({
   selector: 'app-add-category',
@@ -20,7 +21,8 @@ export class AddCategoryComponent implements OnInit {
     public dialogRef: MatDialogRef<Category>,
     @Inject(MAT_DIALOG_DATA) public data: Category,
     private snackBar: MatSnackBar,
-    private categoryService: CategoryService) { }
+    private categoryService: CategoryService,
+    private dialog: MatDialog) { }
 
   ngOnInit() {
   }
@@ -41,9 +43,16 @@ export class AddCategoryComponent implements OnInit {
           duration: 2000
         });
 
-        this.dialogRef.close();
+        this.showAll();
       });
-
     }
+  }
+
+  showAll() {
+    this.dialog.open(ListCategoriesComponent, {
+      width: '400px',
+      backdropClass: 'bg-primary',
+      disableClose: true
+    });
   }
 }

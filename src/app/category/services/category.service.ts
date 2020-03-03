@@ -17,4 +17,8 @@ export class CategoryService {
     return this.categories.add(category);
   }
 
+  getAll() {
+    return this.categories.valueChanges({ idField: "id" });
+  }
+
 }

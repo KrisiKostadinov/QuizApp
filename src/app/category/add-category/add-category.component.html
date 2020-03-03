@@ -1,4 +1,4 @@
-<h2 class="text-center text-success">Нова категория</h2>
+<h2 class="text-center text-success"><i class="material-icons">add</i> Нова категория</h2>
 <form [formGroup]="addForm">
     <mat-form-field class="w-100">
         <mat-label>Нова категория</mat-label>
@@ -6,6 +6,7 @@
     </mat-form-field>
     <div class="d-flex justify-content-center">
         <button mat-button [disabled]="addForm.invalid" (click)="addCategory()" color="primary">Добави</button>
-        <button [mat-dialog-close]="" class="mx-2" mat-mini-fab color="warn"><i class="material-icons">undo</i></button>
+        <button class="btn btn-primary mx-2" (click)="showAll()">Всички</button>
+        <button [mat-dialog-close]="" mat-button color="warn">Откажи</button>
     </div>
 </form>
