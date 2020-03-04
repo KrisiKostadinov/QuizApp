@@ -1,7 +1,17 @@
-<div *ngIf="currentQuestion">
-    <h2 class="text-center py-4 text-light">Въпрос {{ currentQuestionIndex }} / {{ questions.length }}</h2>
+<mat-spinner *ngIf="isSelectedCategory && !questions" class="mx-auto"></mat-spinner>
+<p class="text-center text-light" *ngIf="questions && questions.length === 0">Тази категория е празна</p>
+<div *ngIf="isSelectedCategory && currentQuestion">
+    <h2 class="text-center py-4 text-light">Въпрос {{ currentQuestionIndex }} от {{ questions.length }}</h2>
     <h2 class="p-4 m-2 bg-primary shadow rounded text-light text-center">{{ currentQuestion.title }}</h2>
     <div class="d-flex justify-content-center">
         <button mat-button class="p-4 m-2 bg-primary shadow rounded text-light" *ngFor="let answer of currentQuestion.answers; let i = index" (click)="nextQuestion(i)">{{ answer.content }}</button>
+    </div>
+</div>
+<div *ngIf="!isSelectedCategory">
+    <h2 class="text-center py-4 text-light">Изберете категория</h2>
+    <div class="categories">
+        <button (click)="wasCategory()" mat-button class="w-100 p-4 m-2 bg-primary shadow rounded text-light">Без категория</button>
+        <mat-spinner *ngIf="!categories" class="mx-auto"></mat-spinner>
+        <button (click)="selectCategory(i)" mat-button class="w-100 p-4 m-2 bg-primary shadow rounded text-light" *ngFor="let category of categories; let i = index">{{ category.title }}</button>
     </div>
 </div>

@@ -1,3 +1,12 @@
 button {
     outline: none;
 }
+
+.categories {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.categories button {
+    font-size: 1.2em;
+}

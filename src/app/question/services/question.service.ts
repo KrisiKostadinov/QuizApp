@@ -34,4 +34,8 @@ export class QuestionService {
     return this.questions.doc(id).set(question, { merge: true });
   }
 
+  getAllByCategory(categoryId: string) {
+    return this.fs.collection<Question>("questions", ref => ref.where('categoryId', '==', categoryId)).valueChanges();
+  }
+
 }

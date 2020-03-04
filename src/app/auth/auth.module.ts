@@ -9,7 +9,9 @@ import { CommonModule } from '@angular/common';
   imports: [
     CommonModule
   ],
-  providers: [ AuthService ],
+  providers: [ 
+    AuthService
+  ],
   bootstrap: []
 })
 export class AuthModule { }

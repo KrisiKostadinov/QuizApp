@@ -14,6 +14,7 @@ import { AdminModule } from './admin/admin.module';
 import { QuestionModule } from './question/question.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { CategoryModule } from './category/category.module';
+import { AuthGuard } from './auth/guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,6 @@ import { CategoryModule } from './category/category.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     AngularFireAuthModule,
     BrowserAnimationsModule,
@@ -32,7 +32,9 @@ import { CategoryModule } from './category/category.module';
     QuestionModule,
     CategoryModule
   ],
-  providers: [],
+  providers: [
+    AuthGuard
+  ],
   bootstrap: [AppComponent],
   entryComponents: [
   ]

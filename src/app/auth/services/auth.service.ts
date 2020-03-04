@@ -10,7 +10,7 @@ import { User } from '../models/user.model';
   providedIn: 'root'
 })
 export class AuthService {
-
+  
   user$: Observable<any>;
 
   constructor(
@@ -28,9 +28,18 @@ export class AuthService {
     )
   }
 
+  get isAdmin() {
+    return localStorage.getItem("user");
+  }
+
   async googleSignin() {
     const provider = new auth.GoogleAuthProvider();
     const credential = await this.afAuth.auth.signInWithPopup(provider);
+
+    await this.afs.collection<User>("users").doc(credential.user.uid).valueChanges().subscribe(data => {
+      localStorage.setItem("user", JSON.stringify(data));
+    });
+
     return this.updateUserData(credential.user);
   }
 
@@ -45,7 +54,7 @@ export class AuthService {
       uid: user.uid,
       email: user.email,
       displayName: user.displayName
-    };
+    } as User;
 
     return userRef.set(data, { merge: true });
   }

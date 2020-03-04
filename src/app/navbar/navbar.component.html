@@ -1,7 +1,7 @@
 <div class="bg-primary shadow">
     <div class="container py-4 d-flex justify-content-between">
         <div class="d-flex align-items-center">
-            <h2 class="text-center text-light text-uppercase">{{ title }}</h2>
+            <h2 class="text-center text-light text-uppercase" routerLink="/all">{{ title }}</h2>
         </div>
         <div *ngIf="auth.user$ | async as user; else login">
             <button (click)="auth.signOut()" class="btn btn-outline-light mx-4">Изход</button>
